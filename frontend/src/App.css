@@ -1,0 +1,369 @@
+body {
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 98vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.904);
+    color: #fff;
+}
+
+.navbar .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin: 0 1rem;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.signup-container {
+    width: 60vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.904);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.signup-form {
+    width: 30vw;
+    height: 63.5vh;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0px 20px 0px 20px;
+}
+
+.signup-black {
+    display: flex;
+    width: 30vw;
+}
+
+.signup-img {
+    margin-left: 20px;
+    width: 30vw;
+}
+
+.hr {
+    margin-top: 60px;
+}
+
+.home-div {
+    margin: 20px;
+    height: fit-content;
+    width: 50vw;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home-li::marker {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.home-main {
+    width: 100vw;
+    height: 90vh;
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-desk-dark-concept-with-copy-space_23-2148459510.jpg?size=626&ext=jpg&ga=GA1.1.1436328623.1725297339&semt=ais_hybrid');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* filter: blur(1px); */
+    margin: 0;
+    z-index: 0;
+
+}
+
+.home-details {
+    z-index: 1;
+    width: 30vw;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 0px 0px 100px;
+}
+
+.home-details h1 {
+    color: #ffffff;
+    margin: 10px 0px 10px 0px;
+    font-weight: 700;
+    font-size: 42px;
+}
+
+.home-details p {
+    color: #fff;
+    margin: 10px 0px 10px 0px;
+    font-weight: 200;
+    font-size: 19px;
+}
+
+.home-details button {
+    height: 40px;
+    padding: 3px;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0px 20px 0px 20px;
+    margin: 10px 0px 10px 0px;
+}
+
+.home-details button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.blog-show {
+    width: 100vw;
+    height: 105vh;
+    display: flex;
+}
+
+.details {
+    background-color: rgba(0, 0, 0, 0.860);
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-blogs {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    list-style-type: none;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0px 10px 0px;
+    color: rgba(0, 0, 0, 0.860);
+}
+
+.sharadimg {
+    width: 150px;
+    height: 180px;
+    border-radius: 200px;
+    margin: 10px;
+}
+
+.details div {
+    height: 90vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details h1 {
+    color: #fff;
+    width: 25vw;
+    margin: 10px;
+}
+
+.details p {
+    color: #fff;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 200;
+}
+
+
+.full-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.860);
+}
+
+.full-container {
+    width: 50vw;
+    height: 60vh;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgb(255, 255, 255), 0 6px 20px 0 rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.full-container h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 10px 0px 10px 0px;
+    color: #fff;
+}
+
+.full-container p {
+    font-size: 20px;
+    font-weight: 100;
+    margin: 20px 0px 10px 0px;
+    color: #fff;
+}
+
+.full-container button {
+    background-color: transparent;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    font-size: large;
+    font-weight: 900;
+}
+
+.full-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myblog-main {
+    display: flex;
+    overflow-y: hidden;
+}
+
+.myblog-container-1 {
+    width: 30vw;
+    background-color: rgba(0, 0, 0, 0.930);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.myblog-container-1 h1 {
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 2px 4px 4px rgba(255, 255, 255, 0.507);
+}
+
+.title {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.title label {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.blogcontent label {
+    color: #fff;
+    margin: 10px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.blogcontent {
+    width: 24vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.title input {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px;
+    height: 40px;
+    padding: 10px;
+}
+
+textarea {
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    margin: 20px 0px;
+}
+
+.myblog-container-2 {
+    width: 92vw;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+ul {
+    list-style-type: none
+}
+
+.li {
+    margin: 30px 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    padding: 20px;
+}
+
+.label {
+    width: 40vw;
+    height: 10vh;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.860);
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.507);
+}
+
+.p {
+    width: 40vw;
+    color: rgba(0, 0, 0, 0.860);
+}
+
+.edit{
+    margin: 0px 20px 0px 0px;
+}
