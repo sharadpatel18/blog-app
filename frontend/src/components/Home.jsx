@@ -14,6 +14,7 @@ const Home = () => {
   }
   const [resData, setResData] = useState(getresData())
   const [blogs, setblogs] = useState([])
+  const [id , setId] = useState()
   const Navigate = useNavigate();
   console.log(resData.jwtToken);
   useEffect(() => {
@@ -52,7 +53,7 @@ const Home = () => {
             {(Object.keys(resData).length == 0) ? <h1>please login first</h1>:""}
             {
               blogs.map((item) => (
-                <div key={item._id} className='home-div' onClick={()=>Navigate(`/fullscreen/${item._id}`)}>
+                <div key={item._id} className='home-div' onClick={()=>Navigate(`/${item._id}`)}>
                   <label htmlFor="username" className='username'>user: {item.username}</label>
                   <hr />
                   <label htmlFor="title" className='label'>{item.title}</label>

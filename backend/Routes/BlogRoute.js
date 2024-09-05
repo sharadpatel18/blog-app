@@ -21,7 +21,7 @@ router.get('/blogdata/:id' , async (req,res)=>{
 router.put('/blogdata/:id' , async(req,res)=>{
     const {id} = req.params;
     const task = req.body;
-    
+  
     const updateTask = await BlogModule.findByIdAndUpdate(id , task)
     .then(()=>{
         res.status(201)
@@ -47,7 +47,6 @@ router.delete('/blogdata/:id' , (req,res)=>{
 
 router.get('/clickedblog/:id' , async(req,res)=>{
     const {id} = req.params;
-    console.log(id);
     const blog = await BlogModule.find({_id:id})
     res.send(blog)
 })

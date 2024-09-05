@@ -38,6 +38,8 @@ const Blogadd = () => {
     setId(id)
     setUpdateUi(true)
     setEditBlog(response[blogIndex])
+    Navigate(`/edit/${id}`)
+    console.log(id);
   }
   
   const handleDelete = (id) => {
@@ -47,14 +49,16 @@ const Blogadd = () => {
         setUpdateUi(true)
   }
 
+  const handleAdd = () => {
+    Navigate('/new')
+  }
+
   return (
     <>
       <div className='myblog-main'>
-        <div className='myblog-container-1'>
-          <h1>add new blog</h1>
-          <div className='blog-container'>
-            <Addblog resdata={resdata}  editBlog={editBlog} id={id} setUpdateUi={setUpdateUi} updateUi={updateUi}/>
-          </div>
+      
+        <div className='add-btn'>
+          <button className='btn btn-primary' onClick={handleAdd}>add blog</button>
         </div>
         <div className='myblog-container-2'>
           {(Object.keys(response).length == 0) ? <h2>add blog</h2>:""}
@@ -66,7 +70,7 @@ const Blogadd = () => {
                     <label className='label'>{item.title}</label>
                     <p className='p'>{item.blogcontent}</p>
                     <div>
-                      <button className='btn btn-primary mx-3' onClick={()=>Navigate(`/fullscreen/${item._id}`)}>read more</button>
+                      <button className='btn btn-primary mx-3' onClick={()=>Navigate(`/${item._id}`)}>read more</button>
                       <button className='btn btn-success edit' onClick={()=>handleEdit(item._id)}>edit</button>
                       <button className='btn btn-danger' onClick={()=>handleDelete(item._id)}>delete</button>
                     </div>
