@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Axios from 'axios'
 import anime from '../assets/UQ3O9WA6.png'
 import { Link  , useNavigate} from 'react-router-dom'
+import { SignupApi } from '../api/AuthApi'
 const Signup = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -9,16 +9,8 @@ const Signup = () => {
     const Navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:4000/auth/signup", { name, email, password })
-            .then((res) => {
-                console.log(res);
-                alert('signup successfully')
-                Navigate('/login')
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-
+        SignupApi(name,email,password);
+        
     }
     return (
         <>

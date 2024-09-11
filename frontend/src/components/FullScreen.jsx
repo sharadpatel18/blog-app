@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
+import { getBlogById } from '../api/BlogApi'
 import { useParams , useNavigate } from 'react-router-dom'
 const FullScreen = () => {
-  const [blog , setBlog] = useState([])
+
   const {id} = useParams();
+  const [blog , setBlog] = useState([])
   const Navigate = useNavigate();
+  
   useEffect(()=>{
-    Axios.get(`http://localhost:4000/blog/clickedblog/${id}`)
-        .then((res)=>{
-          setBlog(res.data)
-        })
-    },[])
-   
+      const saveData = async () => {
+          const responce = await getBlogById(id)
+          if (responce) {
+            setBlog(responce)
+          }else{
+            alert('internal server error')
+          }
+        }
+        saveData()
+      },[])
+     
     const handleClick =() =>{
       Navigate('/')
     }

@@ -1,6 +1,6 @@
-import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import anime from '../assets/UQ3O9WA6.png'
+import { LoginApi } from '../api/AuthApi'
 const Login = () => {
   const getresData = () => {
     const getData = localStorage.getItem('resData')
@@ -15,17 +15,12 @@ const Login = () => {
   const [resData, setResData] = useState(getresData())
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:4000/auth/login", { email, password })
-      .then((res) => {
-        console.log(res.data);
-        alert("login successfully")
-        setResData(res.data)
-        window.location.reload();
-
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    const saveData = async () => {
+      const data = await LoginApi(email,password) 
+      setResData(data)
+      window.location.reload();
+    }
+    saveData()
   }
 
   useEffect(() => {

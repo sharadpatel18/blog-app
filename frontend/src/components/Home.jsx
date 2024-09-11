@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import sharadlaniya from '../assets/image.png'
 import FullScreen from './FullScreen'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { getAllBlog } from '../api/BlogApi';
 const Home = () => {
   const getresData = () => {
     const resData = localStorage.getItem('resData')
@@ -12,21 +13,22 @@ const Home = () => {
       return {}
     }
   }
+  
   const [resData, setResData] = useState(getresData())
   const [blogs, setblogs] = useState([])
   const [id , setId] = useState()
   const Navigate = useNavigate();
-  console.log(resData.jwtToken);
+
   useEffect(() => {
-    Axios.get('http://localhost:4000/blog/public/blogdata' , {
-      headers:{
-        "Authorization":`${resData.jwtToken}`
+    const saveData = async () => {
+      const data = await getAllBlog(resData.jwtToken)
+      if (data) {
+        setblogs(data)
+      }else{
+        alert('internal server error')
       }
-    })
-      .then((res) => {
-        console.log(res.data);
-        setblogs(res.data)
-      })
+    }
+    saveData()
   }, [])
 
 

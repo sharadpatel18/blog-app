@@ -13,7 +13,6 @@ router.get('/public/blogdata', Authentication , async(req,res)=>{
 
 router.get('/blogdata/:id' , async (req,res)=>{
     const {id} = req.params;
-  
     const myblog = await BlogModule.find({userId:id})
     res.send(myblog)
 })

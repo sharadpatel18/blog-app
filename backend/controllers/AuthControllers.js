@@ -39,7 +39,7 @@ const Login = async(req, res) => {
 
         const isPasswordEqual = await bcrypt.compare(password, user.password);
         if (!isPasswordEqual) {
-            return res.ststus(403)
+            return res.status(403)
                 .json({ message: "email and password is wrong" })
         }
 
