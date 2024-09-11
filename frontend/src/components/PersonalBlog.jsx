@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
-import Addblog from './Addblog'
+import {getPersonalBlogApi , DeleteBlogApi} from '../api/BlogApi'
 import { useNavigate } from 'react-router-dom'
 const Blogadd = () => {
   const getId = () => {
@@ -19,15 +18,13 @@ const Blogadd = () => {
   const [updateUi , setUpdateUi] = useState(false)
   const Navigate = useNavigate()
   useEffect(() => {
-    console.log(resdata.id);
+   
     if (Object.keys(resdata).length != 0) {
-      Axios.get(`http://localhost:4000/blog/blogdata/${resdata.id}`)
-        .then((res) => {
-          setResponse(res.data)
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+      const saveData = async () => {
+        const data = await getPersonalBlogApi(resdata.id)
+        setResponse(data) 
+      }
+      saveData()
     }
   }, [updateUi])
 
@@ -43,10 +40,11 @@ const Blogadd = () => {
   }
   
   const handleDelete = (id) => {
-        Axios.delete(`http://localhost:4000/blog/blogdata/${id}`)
-        .then((res)=>console.log(res))
-        .catch((err)=>console.log(err))
-        setUpdateUi(true)
+      const saveData = async () => {
+        const data = await DeleteBlogApi(id)
+        setUpdateUi(data)
+      }
+      saveData()
   }
 
   const handleAdd = () => {
