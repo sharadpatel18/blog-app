@@ -4,5 +4,6 @@ blog app created using frontend and backend and fully authenticated and crud ope
 
 
 updated blog:-
-
 add two files AuthApi and BlogApi to handle All Athentication Apies and Blog Apies
+update a code format in blogApi and authApi
+use a Axios intance
