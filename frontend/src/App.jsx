@@ -10,7 +10,6 @@ import FullScreen from './components/FullScreen';
 import Addblog from './components/Addblog';
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
