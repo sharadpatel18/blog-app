@@ -21,13 +21,13 @@ const Addblog = ({ isNew }) => {
     const [editData, setEditData] = useState([])
     const [isEdited, setisEdited] = useState(false)
     const handleSubmit = () => {
-        AddBlogApi(title , blogcontent , userId , username)
+        AddBlogApi(title , blogcontent , userId , username , resdata.jwtToken)
     }
 
     if (!isNew) {
         useEffect(() => {
             const saveData = async () => {
-                const data = await getUpdateBlogApi(id)
+                const data = await getUpdateBlogApi(id , resdata.jwtToken)
                 setEditData(data)
                 setisEdited(true)
             }
@@ -45,7 +45,7 @@ const Addblog = ({ isNew }) => {
         e.preventDefault()
     
         if (!isNew) {
-           UpdateBlogApi(id , title , blogcontent , userId , username)
+           UpdateBlogApi(id , title , blogcontent , userId , username , resdata.jwtToken)
            Navigate("/myblog")
         }
     }

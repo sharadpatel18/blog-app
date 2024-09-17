@@ -17,7 +17,7 @@ router.get('/blogdata/:id' , async (req,res)=>{
     res.send(myblog)
 })
 
-router.put('/blogdata/:id' , async(req,res)=>{
+router.put('/blogdata/:id' , Authentication ,async(req,res)=>{
     const {id} = req.params;
     const task = req.body;
   
@@ -32,7 +32,7 @@ router.put('/blogdata/:id' , async(req,res)=>{
     })
 })
 
-router.delete('/blogdata/:id' , (req,res)=>{
+router.delete('/blogdata/:id' , Authentication ,(req,res)=>{
     const {id} = req.params;
     const deleteTask = BlogModule.findByIdAndDelete(id)
     .then(()=>{
@@ -44,7 +44,7 @@ router.delete('/blogdata/:id' , (req,res)=>{
     })
 })
 
-router.get('/clickedblog/:id' , async(req,res)=>{
+router.get('/clickedblog/:id'  ,async(req,res)=>{
     const {id} = req.params;
     const blog = await BlogModule.find({_id:id})
     res.send(blog)

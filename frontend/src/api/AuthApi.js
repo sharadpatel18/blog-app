@@ -1,9 +1,12 @@
 import Axios from 'axios'
 
+const instance = Axios.create({
+    baseURL:import.meta.env.VITE_AUTH_INSTANCE, 
+})
+
 const SignupApi = async (name, email, password) => {
     try {
-        const responce = await Axios.post(import.meta.env.VITE_SIGN_UP_API, { name, email, password })
-        alert('signup successfully, please go to login page!')
+        const responce = await instance.post('/signup', { name, email, password })
         console.log(responce);
     } catch (error) {
         console.log(error);
@@ -12,8 +15,7 @@ const SignupApi = async (name, email, password) => {
 
 const LoginApi = async (email, password) => {
     try {
-        const responce = await Axios.post( import.meta.env.VITE_LOGIN_API, { email, password }) 
-        alert('login successfully')
+        const responce = await instance.post('/login', { email, password }) 
         return responce.data;
     } catch (error) {
         

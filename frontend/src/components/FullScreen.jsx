@@ -34,7 +34,7 @@ const FullScreen = () => {
             <button onClick={handleClick}>X</button>
           </div>
             <p>{item.blogcontent}</p>
-        </div>
+          </div>
     </div>
       ))
     }

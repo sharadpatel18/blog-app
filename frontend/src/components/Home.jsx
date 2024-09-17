@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
 import sharadlaniya from '../assets/image.png'
-import FullScreen from './FullScreen'
 import { useNavigate } from 'react-router-dom';
 import { getAllBlog } from '../api/BlogApi';
 const Home = () => {

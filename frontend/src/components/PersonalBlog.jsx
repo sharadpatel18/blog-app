@@ -41,7 +41,7 @@ const Blogadd = () => {
   
   const handleDelete = (id) => {
       const saveData = async () => {
-        const data = await DeleteBlogApi(id)
+        const data = await DeleteBlogApi(id , resdata.jwtToken)
         setUpdateUi(data)
       }
       saveData()
