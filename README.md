@@ -7,3 +7,4 @@ updated blog:-
 add two files AuthApi and BlogApi to handle All Athentication Apies and Blog Apies
 update a code format in blogApi and authApi
 use a Axios intance
+add a reset password functionality
