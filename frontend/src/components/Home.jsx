@@ -22,8 +22,6 @@ const Home = () => {
       const data = await getAllBlog(resData.jwtToken)
       if (data) {
         setblogs(data)
-      }else{
-        alert('internal server error')
       }
     }
     saveData()

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import anime from '../assets/UQ3O9WA6.png'
 import { LoginApi } from '../api/AuthApi'
+import { Link  } from 'react-router-dom'
 const Login = () => {
   const getresData = () => {
     const getData = localStorage.getItem('resData')
@@ -23,6 +24,7 @@ const Login = () => {
     saveData()
   }
 
+  
   useEffect(() => {
     localStorage.setItem('resData', JSON.stringify(resData))
   }, [resData])
@@ -43,6 +45,7 @@ const Login = () => {
               <input type="password" className="form-control" id="exampleInputPassword1" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
+            <Link to='/forgetpassword' className='mx-2'>forget password</Link>
           </form>
           <div className='signup-black'>
             <img src={anime} alt='err' className='signup-img' />

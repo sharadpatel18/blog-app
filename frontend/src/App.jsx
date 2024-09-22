@@ -8,6 +8,8 @@ import Login from "./components/Login";
 import MyBlog from "./components/PersonalBlog";
 import FullScreen from './components/FullScreen';
 import Addblog from './components/Addblog';
+import ForgetPasswordComponent from './components/ForgetPassword';
+import ResetPasswordComponent from './components/ResetPassword';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/:id" element={<FullScreen/>} />
             <Route path={"/edit/:id"} element={<Addblog isNew={false}/>} />
             <Route path={"/new"} element={<Addblog isNew={true}/>} />
+            <Route path={'/forgetpassword'} element={<ForgetPasswordComponent/>}/>
+            <Route path={'/resetpassword/:id'} element={<ResetPasswordComponent/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
