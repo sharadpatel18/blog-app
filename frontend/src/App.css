@@ -392,3 +392,14 @@ ul {
     border: #fff;
     border-radius: 20px;
 }
+
+.fp-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+}
+
+.fp-container button{
+    margin: 10px 0px;
+}
