@@ -54,9 +54,23 @@ router.post("/reqtoedit", async (req, res) => {
   console.log(req.body);
   const saveReq = new EditHistory(req.body);
   saveReq.save();
-  
-  res.status(200)
-    .json({message:"edit req" , success:false})
 });
+
+router.get('/geteditreqblog/:id' , async (req,res)=>{
+  const {id} = req.params;
+  const getBlogById = await EditHistory.find({recieverId:id})
+  res.send(getBlogById)
+})
+
+router.patch('/updaterequestedblog/:id' , async (req,res)=>{
+  try {
+    const {id} = req.params;
+    const updateData = await EditHistory.findByIdAndUpdate(id , req.body)  
+    res.status(200)
+        .send('updated')
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 module.exports = router;

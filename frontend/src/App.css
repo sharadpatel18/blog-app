@@ -403,3 +403,21 @@ ul {
 .fp-container button{
     margin: 10px 0px;
 }
+
+.req-main{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.request{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 20px;
+    border: 1px solid black;
+}

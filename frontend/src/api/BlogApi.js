@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const instance = Axios.create({
-    baseURL:import.meta.env.VITE_BLOG_INSTANCE,
+    baseURL: import.meta.env.VITE_BLOG_INSTANCE,
 })
 
 const getAllBlog = async (jwtToken) => {
@@ -13,13 +13,13 @@ const getAllBlog = async (jwtToken) => {
         })
         return responce.data;
     } catch (error) {
-        
+
     }
 }
 
-const AddBlogApi = async (title , blogcontent , userId , username , jwtToken) => {
+const AddBlogApi = async (title, blogcontent, userId, username, jwtToken) => {
     try {
-        const responce = await instance.post('/blogdata', { title, blogcontent, userId, username } , {
+        const responce = await instance.post('/blogdata', { title, blogcontent, userId, username }, {
             headers: {
                 "Authorization": `${jwtToken}`
             }
@@ -31,9 +31,9 @@ const AddBlogApi = async (title , blogcontent , userId , username , jwtToken) =>
 }
 
 
-const getUpdateBlogApi = async (id , jwtToken) => {
+const getUpdateBlogApi = async (id, jwtToken) => {
     try {
-        const responce = await instance.get('/clickedblog/' + `${id}` , {
+        const responce = await instance.get('/clickedblog/' + `${id}`, {
             headers: {
                 "Authorization": `${jwtToken}`
             }
@@ -44,9 +44,11 @@ const getUpdateBlogApi = async (id , jwtToken) => {
     }
 }
 
-const UpdateBlogApi = async (id ,title , blogcontent , userId ,username , jwtToken) => {
+const UpdateBlogApi = async (id, title, blogcontent, userId, username, jwtToken) => {
     try {
-        const responce = await instance.put('/blogdata/' + `${id}`, { title, blogcontent, userId, username } , {
+        console.log(id,title);
+        
+        const responce = await instance.put('/blogdata/' + `${id}`, { title, blogcontent, userId, username }, {
             headers: {
                 "Authorization": `${jwtToken}`
             }
@@ -55,20 +57,20 @@ const UpdateBlogApi = async (id ,title , blogcontent , userId ,username , jwtTok
     } catch (error) {
         console.log(error);
     }
-}   
-
-const getPersonalBlogApi = async (id) => {
-   try {
-        const responce = await instance.get('/blogdata/' + `${id}`)
-        return responce.data;
-   } catch (error) {
-        console.log(error);
-   }
 }
 
-const DeleteBlogApi = async (id , jwtToken) => {
+const getPersonalBlogApi = async (id) => {
     try {
-        const responce = await instance.delete('/blogdata/' + `${id}` , {
+        const responce = await instance.get('/blogdata/' + `${id}`)
+        return responce.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const DeleteBlogApi = async (id, jwtToken) => {
+    try {
+        const responce = await instance.delete('/blogdata/' + `${id}`, {
             headers: {
                 "Authorization": `${jwtToken}`
             }
@@ -77,29 +79,45 @@ const DeleteBlogApi = async (id , jwtToken) => {
     } catch (error) {
         console.log(error);
     }
-    
-} 
+
+}
 
 
-const getBlogById = async (id , senderId , editBlog) => {
+const getBlogById = async (id, senderId, editBlog) => {
     try {
-        const responce = await instance.get("/clickedblog/" +`${id}`)
+        const responce = await instance.get("/clickedblog/" + `${id}`)
         return responce.data;
     } catch (error) {
         console.log(error);
     }
 }
 
-const ReqToEdit = async (senderId,recieverId , editData) => {
-    try{
-        const responce = await instance.post('/reqtoedit' , {senderId:senderId , recieverId:recieverId,editData:editData,isCompleted:false})
+const ReqToEdit = async (senderId, recieverId, editData) => {
+    try {
+        const responce = await instance.post('/reqtoedit', { senderId: senderId, recieverId: recieverId, editData: editData, isCompleted: false , isAccepted:false})
         console.log(responce.data);
-        console.log(senderId,recieverId,editData);
-        
-    }catch(error){
-        console.log(senderId,recieverId,editData);
+    } catch (error) {
+        console.log(senderId, recieverId, editData);
         console.log(error);
     }
 }
 
-export { getAllBlog , AddBlogApi , getUpdateBlogApi , UpdateBlogApi , getPersonalBlogApi , DeleteBlogApi , getBlogById , ReqToEdit} 
+const getEditBlogbyId = async (recieverId) => {
+    try {
+        const responce = await instance.get('/geteditreqblog/' + `${recieverId}`)
+        return responce.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const RequestAcceptOrReject = async (id , isAccepted) => {
+    try {
+        const responce = await instance.patch('/updaterequestedblog/' + `${id}` , {isCompleted:true , isAccepted:isAccepted})
+        return responce
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { getAllBlog, AddBlogApi, getUpdateBlogApi, UpdateBlogApi, getPersonalBlogApi, DeleteBlogApi, getBlogById, ReqToEdit, getEditBlogbyId  , RequestAcceptOrReject} 

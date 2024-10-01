@@ -25,6 +25,9 @@ const EditSchema = new mongoose.Schema({
     },
     isCompleted:{
         type:Boolean
+    },
+    isAccepted:{
+        type:Boolean
     }
 },{timestamps:true})
 

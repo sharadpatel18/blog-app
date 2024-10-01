@@ -59,7 +59,7 @@ const Home = () => {
                   <label htmlFor="title" className='label'>{item.title}</label>
                   <p className='p'>{item.blogcontent}</p>
                   <button className='btn btn-primary' onClick={()=>Navigate(`/${item._id}`)}>read more</button>
-                  <button className='btn btn-success mx-1' onClick={()=>handleReqToEdit(item._id)}>req to edit blog</button>
+                  {(item.userId == resData.id) ? "" :  <button className='btn btn-success mx-1' onClick={()=>handleReqToEdit(item._id)}>req to edit blog</button>}
                 </div>
               ))
             }

@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { Link, Outlet  } from 'react-router-dom'
+
 const Navbar = () => {
     const getresData = () =>{
         const resData = localStorage.getItem('resData')
@@ -26,6 +27,7 @@ const Navbar = () => {
                     <li><Link to="/">Home</Link></li>
                     {(Object.keys(resData).length === 0) ? <li><Link to="/signup">Signup/login</Link></li>  : <li><button style={{backgroundColor:"transparent" , color:"white" , border:"0px"}} onClick={handleClick}>sign out</button></li>}
                     <li><Link to="/myblog">My blog</Link></li>
+                    <li><Link to={"/request/"+`${resData.id}`}>Request</Link></li>
                 </ul>
                 <div className="menu-toggle" id="menu-toggle">
                    &#9776;
