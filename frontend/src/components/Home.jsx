@@ -27,7 +27,9 @@ const Home = () => {
     saveData()
   }, [])
 
-
+  const handleReqToEdit = (id) => {
+      Navigate(`/editreq/${id}`)
+  }
   return (
     <>
       <div className='home-main'>
@@ -51,11 +53,13 @@ const Home = () => {
             {(Object.keys(resData).length == 0) ? <h1>please login first</h1>:""}
             {
               blogs.map((item) => (
-                <div key={item._id} className='home-div' onClick={()=>Navigate(`/${item._id}`)}>
+                <div key={item._id} className='home-div'>
                   <label htmlFor="username" className='username'>user: {item.username}</label>
                   <hr />
                   <label htmlFor="title" className='label'>{item.title}</label>
                   <p className='p'>{item.blogcontent}</p>
+                  <button className='btn btn-primary' onClick={()=>Navigate(`/${item._id}`)}>read more</button>
+                  <button className='btn btn-success mx-1' onClick={()=>handleReqToEdit(item._id)}>req to edit blog</button>
                 </div>
               ))
             }

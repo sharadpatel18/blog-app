@@ -24,6 +24,7 @@ function App() {
             <Route path="/:id" element={<FullScreen/>} />
             <Route path={"/edit/:id"} element={<Addblog isNew={false}/>} />
             <Route path={"/new"} element={<Addblog isNew={true}/>} />
+            <Route path={"/editreq/:id"} element={<Addblog isEditable={true}/>} />
             <Route path={'/forgetpassword'} element={<ForgetPasswordComponent/>}/>
             <Route path={'/resetpassword/:id'} element={<ResetPasswordComponent/>}/>
           </Route>

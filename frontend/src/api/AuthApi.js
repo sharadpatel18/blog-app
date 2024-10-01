@@ -7,6 +7,8 @@ const instance = Axios.create({
 const SignupApi = async (name, email, password) => {
     try {
         const responce = await instance.post('/signup', { name, email, password })
+        console.log(import.meta.env.VITE_AUTH_INSTANCE,"/signup");
+        
         console.log(responce);
     } catch (error) {
         console.log(error);

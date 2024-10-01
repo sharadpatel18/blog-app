@@ -81,7 +81,7 @@ const DeleteBlogApi = async (id , jwtToken) => {
 } 
 
 
-const getBlogById = async (id) => {
+const getBlogById = async (id , senderId , editBlog) => {
     try {
         const responce = await instance.get("/clickedblog/" +`${id}`)
         return responce.data;
@@ -90,4 +90,16 @@ const getBlogById = async (id) => {
     }
 }
 
-export { getAllBlog , AddBlogApi , getUpdateBlogApi , UpdateBlogApi , getPersonalBlogApi , DeleteBlogApi , getBlogById} 
+const ReqToEdit = async (senderId,recieverId , editData) => {
+    try{
+        const responce = await instance.post('/reqtoedit' , {senderId:senderId , recieverId:recieverId,editData:editData,isCompleted:false})
+        console.log(responce.data);
+        console.log(senderId,recieverId,editData);
+        
+    }catch(error){
+        console.log(senderId,recieverId,editData);
+        console.log(error);
+    }
+}
+
+export { getAllBlog , AddBlogApi , getUpdateBlogApi , UpdateBlogApi , getPersonalBlogApi , DeleteBlogApi , getBlogById , ReqToEdit} 
