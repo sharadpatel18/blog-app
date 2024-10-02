@@ -120,4 +120,14 @@ const RequestAcceptOrReject = async (id , isAccepted) => {
     }
 }
 
-export { getAllBlog, AddBlogApi, getUpdateBlogApi, UpdateBlogApi, getPersonalBlogApi, DeleteBlogApi, getBlogById, ReqToEdit, getEditBlogbyId  , RequestAcceptOrReject} 
+
+const EditHistory = async (recieverId) => {
+    try {
+        const responce = await instance.get("/gethistorybyid/"+`${recieverId}`)
+        return responce.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { getAllBlog, AddBlogApi, getUpdateBlogApi, UpdateBlogApi, getPersonalBlogApi, DeleteBlogApi, getBlogById, ReqToEdit, getEditBlogbyId  , RequestAcceptOrReject, EditHistory} 

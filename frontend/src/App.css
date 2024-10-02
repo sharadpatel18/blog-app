@@ -421,3 +421,10 @@ ul {
     padding: 20px;
     border: 1px solid black;
 }
+
+.history{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    margin: 10px;
+}

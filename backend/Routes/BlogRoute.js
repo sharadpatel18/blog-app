@@ -73,4 +73,14 @@ router.patch('/updaterequestedblog/:id' , async (req,res)=>{
   }
 })
 
+
+router.get("/gethistorybyid/:id" , async (req,res)=>{
+  try {
+    const {id} = req.params;
+    const getHistory = await EditHistory.find({recieverId:id , isCompleted:true})
+    res.send(getHistory)
+  } catch (error) {
+    console.log(error);
+  }
+})
 module.exports = router;

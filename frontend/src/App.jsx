@@ -11,6 +11,7 @@ import Addblog from './components/Addblog';
 import ForgetPasswordComponent from './components/ForgetPassword';
 import ResetPasswordComponent from './components/ResetPassword';
 import Request from './components/Request';
+import History from './components/History';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path={'/forgetpassword'} element={<ForgetPasswordComponent/>}/>
             <Route path={'/resetpassword/:id'} element={<ResetPasswordComponent/>}/>
             <Route path={'/request/:id'} element={<Request/>}/>
+            <Route path={'/history/:id'} element={<History/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

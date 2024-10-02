@@ -28,6 +28,7 @@ const Navbar = () => {
                     {(Object.keys(resData).length === 0) ? <li><Link to="/signup">Signup/login</Link></li>  : <li><button style={{backgroundColor:"transparent" , color:"white" , border:"0px"}} onClick={handleClick}>sign out</button></li>}
                     <li><Link to="/myblog">My blog</Link></li>
                     <li><Link to={"/request/"+`${resData.id}`}>Request</Link></li>
+                    <li><Link to={"/history/"+`${resData.id}`}>History</Link></li>
                 </ul>
                 <div className="menu-toggle" id="menu-toggle">
                    &#9776;
