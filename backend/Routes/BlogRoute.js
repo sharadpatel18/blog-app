@@ -44,25 +44,25 @@ router.delete("/blogdata/:id", Authentication, (req, res) => {
     });
 });
 
-router.get("/clickedblog/:id", async (req, res) => {
+router.get("/clickedblog/:id", Authentication  , async (req, res) => {
   const { id } = req.params;
   const blog = await BlogModule.find({ _id: id });
   res.send(blog);
 });
 
-router.post("/reqtoedit", async (req, res) => {
+router.post("/reqtoedit", Authentication , async (req, res) => {
   console.log(req.body);
   const saveReq = new EditHistory(req.body);
   saveReq.save();
 });
 
-router.get('/geteditreqblog/:id' , async (req,res)=>{
+router.get('/geteditreqblog/:id' , Authentication , async (req,res)=>{
   const {id} = req.params;
   const getBlogById = await EditHistory.find({recieverId:id})
   res.send(getBlogById)
 })
 
-router.patch('/updaterequestedblog/:id' , async (req,res)=>{
+router.patch('/updaterequestedblog/:id' , Authentication ,async (req,res)=>{
   try {
     const {id} = req.params;
     const updateData = await EditHistory.findByIdAndUpdate(id , req.body)  
@@ -74,7 +74,7 @@ router.patch('/updaterequestedblog/:id' , async (req,res)=>{
 })
 
 
-router.get("/gethistorybyid/:id" , async (req,res)=>{
+router.get("/gethistorybyid/:id" , Authentication , async (req,res)=>{
   try {
     const {id} = req.params;
     const getHistory = await EditHistory.find({recieverId:id , isCompleted:true})

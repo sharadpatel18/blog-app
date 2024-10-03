@@ -17,14 +17,14 @@ const Request = () => {
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     const saveData = async () => {
-      const data = await getEditBlogbyId(id);
+      const data = await getEditBlogbyId(id ,resData.jwtToken);
       setBlog(data);
     };
     saveData();
   }, []);
  
   const handleAcceptorRejected = (id,isAccepted) => {
-    RequestAcceptOrReject(id,isAccepted)
+    RequestAcceptOrReject(id,isAccepted,resData.jwtToken)
     if (isAccepted && blog.length !== 0) {
         console.log(blog);
         UpdateBlogApi(blog[blog.length-1].editData.blogId , blog[blog.length-1].editData.title ,blog[blog.length-1].editData.blogcontent , resData.id , resData.name , resData.jwtToken)

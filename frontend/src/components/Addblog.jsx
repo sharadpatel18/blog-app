@@ -24,7 +24,8 @@ const Addblog = ({ isNew  , isEditable}) => {
         AddBlogApi(title , blogcontent , userId , username , resdata.jwtToken)
     }
     const handleAddreq= () =>{
-       ReqToEdit(resdata.id , editData.userId , {blogId:id , title:title , blogcontent:blogcontent})
+       ReqToEdit(resdata.id , editData.userId , {blogId:id , title:title , blogcontent:blogcontent} , resdata.jwtToken)
+       Navigate('/')
     } 
     const handleUpdate = (e) => {
         e.preventDefault()

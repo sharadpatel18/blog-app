@@ -3,11 +3,21 @@ import { useParams } from 'react-router-dom'
 import { EditHistory } from '../api/BlogApi';
 
 const History = () => {
+    const getresData = () => {
+        const resData = localStorage.getItem('resData')
+        if (resData) {
+          return JSON.parse(resData)
+        } else {
+          return {}
+        }
+      }
+      
+      const [resData, setResData] = useState(getresData())
     const {id} = useParams();
     const [blog,setBlog] = useState([])
     useEffect(()=>{
         const saveData = async () => {
-            const data = await EditHistory(id)
+            const data = await EditHistory(id , resData.jwtToken)
             setBlog(data)
             console.log(blog);
             

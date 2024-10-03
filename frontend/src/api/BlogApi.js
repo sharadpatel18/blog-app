@@ -83,18 +83,26 @@ const DeleteBlogApi = async (id, jwtToken) => {
 }
 
 
-const getBlogById = async (id, senderId, editBlog) => {
+const getBlogById = async (id , jwtToken) => {
     try {
-        const responce = await instance.get("/clickedblog/" + `${id}`)
+        const responce = await instance.get("/clickedblog/" + `${id}` , {
+            headers: {
+                "Authorization": `${jwtToken}`
+            }
+        })
         return responce.data;
     } catch (error) {
         console.log(error);
     }
 }
 
-const ReqToEdit = async (senderId, recieverId, editData) => {
+const ReqToEdit = async (senderId, recieverId, editData , jwtToken) => {
     try {
-        const responce = await instance.post('/reqtoedit', { senderId: senderId, recieverId: recieverId, editData: editData, isCompleted: false , isAccepted:false})
+        const responce = await instance.post('/reqtoedit', { senderId: senderId, recieverId: recieverId, editData: editData, isCompleted: false , isAccepted:false} , {
+            headers: {
+                "Authorization": `${jwtToken}`
+            }
+        })
         console.log(responce.data);
     } catch (error) {
         console.log(senderId, recieverId, editData);
@@ -102,18 +110,26 @@ const ReqToEdit = async (senderId, recieverId, editData) => {
     }
 }
 
-const getEditBlogbyId = async (recieverId) => {
+const getEditBlogbyId = async (recieverId , jwtToken) => {
     try {
-        const responce = await instance.get('/geteditreqblog/' + `${recieverId}`)
+        const responce = await instance.get('/geteditreqblog/' + `${recieverId}` , {
+            headers: {
+                "Authorization": `${jwtToken}`
+            }
+        })
         return responce.data;
     } catch (error) {
         console.log(error);
     }
 }
 
-const RequestAcceptOrReject = async (id , isAccepted) => {
+const RequestAcceptOrReject = async (id , isAccepted , jwtToken) => {
     try {
-        const responce = await instance.patch('/updaterequestedblog/' + `${id}` , {isCompleted:true , isAccepted:isAccepted})
+        const responce = await instance.patch('/updaterequestedblog/' + `${id}` , {isCompleted:true , isAccepted:isAccepted} , {
+            headers: {
+                "Authorization": `${jwtToken}`
+            }
+        })
         return responce
     } catch (error) {
         console.log(error);
@@ -121,9 +137,13 @@ const RequestAcceptOrReject = async (id , isAccepted) => {
 }
 
 
-const EditHistory = async (recieverId) => {
+const EditHistory = async (recieverId , jwtToken) => {
     try {
-        const responce = await instance.get("/gethistorybyid/"+`${recieverId}`)
+        const responce = await instance.get("/gethistorybyid/"+`${recieverId}` , {
+            headers: {
+                "Authorization": `${jwtToken}`
+            }
+        })
         return responce.data
     } catch (error) {
         console.log(error);
